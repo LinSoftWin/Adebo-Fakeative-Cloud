@@ -83,6 +83,8 @@ echo 'WINEPREFIX='$1'/Adobe-Photoshop DXVK_LOG_PATH='$1'/Adobe-Photoshop DXVK_ST
 
 chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
 
+WINEPREFIX=$1/Adobe-Photoshop ./winetricks win10
+
 
 mv allredist/photoshop.png ~/.local/share/icons
 
