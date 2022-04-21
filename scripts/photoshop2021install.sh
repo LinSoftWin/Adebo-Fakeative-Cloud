@@ -70,9 +70,33 @@ WINEPREFIX=$1/Adobe-Photoshop sh allredist/setup_vkd3d_proton.sh install
 
 mkdir $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe
 mv Adobe\ Photoshop\ 2021 $1/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
-mv allredist/launcher.sh $1/Adobe-Photoshop/drive_c
+
+touch $1/Adobe-Photoshop/drive_c/launcher.sh
+echo '#!/usr/bin/env bash' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'SCR_PATH="pspath"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'CACHE_PATH="pscache"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'RESOURCES_PATH="$SCR_PATH/resources"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'WINE_PREFIX="$SCR_PATH/prefix"' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'FILE_PATH=$(winepath -w "$1")' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'export WINEPREFIX="'+$1+'/Adobe-Photoshop' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'WINEPREFIX='+$1+'/Adobe-Photoshop' DXVK_LOG_PATH='+$1+'/Adobe-Photoshop' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+echo 'DXVK_STATE_CACHE_PATH='+$1+'/Adobe-Photoshop wine64' '+$1+'/Adobe-Photoshop/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe $FILE_PATH' >> $1/Adobe-Photoshop/drive_c/launcher.sh
+
+chmod +x $1/Adobe-Photoshop/drive_c/launcher.sh
+
+
 mv allredist/photoshop.png ~/.local/share/icons
-mv allredist/photoshop.desktop ~/.local/share/applications
+
+
+touch ~/.local/share/applications/photoshop.desktop
+echo '[Desktop Entry]' >> ~/.local/share/applications/photoshop.desktop
+echo 'Name=Photoshop CC 2021' >> ~/.local/share/applications/photoshop.desktop
+echo 'Exec=bash -c "'+$1+'/Adobe-Photoshop/drive_c/launcher.sh %F"' >> ~/.local/share/applications/photoshop.desktop
+echo 'Type=Application' >> ~/.local/share/applications/photoshop.desktop
+echo 'Comment=Photoshop CC 2021 (Wine)' >> ~/.local/share/applications/photoshop.desktop
+echo 'Categories=Graphics;' >> ~/.local/share/applications/photoshop.desktop
+echo 'Icon=photoshop' >> ~/.local/share/applications/photoshop.desktop
+echo 'StartupWMClass=photoshop.exe' >> ~/.local/share/applications/photoshop.desktop
 
 rm -rf allredist
 rm -rf winetricks
