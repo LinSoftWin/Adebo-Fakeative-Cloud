@@ -107,6 +107,8 @@ echo 'StartupWMClass=photoshop.exe' >> ~/.local/share/applications/photoshop.des
 
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
 tar -xf Adobe_Photoshop_2022_Settings.tar.xz
+mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe
+mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
 mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
 rm -rf Adobe_Photoshop_2022_Settings.tar.xz
 rm -rf Adobe\ Photoshop\ 2022\ Settings
