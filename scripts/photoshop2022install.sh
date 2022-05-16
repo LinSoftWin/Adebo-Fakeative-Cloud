@@ -94,6 +94,15 @@ WINEPREFIX=$1/Adobe-Photoshop winecfg -v win10
 mv allredist/photoshop.png ~/.local/share/icons
 
 
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
+tar -xf Adobe_Photoshop_2022_Settings.tar.xz
+mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe
+mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
+mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
+rm -rf Adobe_Photoshop_2022_Settings.tar.xz
+rm -rf Adobe\ Photoshop\ 2022\ Settings
+
+
 touch ~/.local/share/applications/photoshop.desktop
 echo '[Desktop Entry]' >> ~/.local/share/applications/photoshop.desktop
 echo 'Name=Photoshop CC 2022' >> ~/.local/share/applications/photoshop.desktop
@@ -104,14 +113,6 @@ echo 'Categories=Graphics;' >> ~/.local/share/applications/photoshop.desktop
 echo 'Icon=photoshop' >> ~/.local/share/applications/photoshop.desktop
 echo 'StartupWMClass=photoshop.exe' >> ~/.local/share/applications/photoshop.desktop
 
-
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe_Photoshop_2022_Settings.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
-tar -xf Adobe_Photoshop_2022_Settings.tar.xz
-mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe
-mkdir $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
-mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/users/$USER/AppData/Roaming/Adobe/Adobe\ Photoshop\ 2022/
-rm -rf Adobe_Photoshop_2022_Settings.tar.xz
-rm -rf Adobe\ Photoshop\ 2022\ Settings
 
 rm -rf allredist
 rm -rf winetricks
