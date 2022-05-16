@@ -124,3 +124,4 @@ echo "100" >> $1/progress.mimifile
 sleep 5
 
 rm -rf $1/progress.mimifile
+rm -rf $1/photoshop2022install.sh
