@@ -28,9 +28,9 @@ echo "25" >> $1/progress.mimifile
 
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/AdobePhotoshop2022.tar.xz" > AdobePhotoshop2022.tar.xz
 
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe.tar.xz" > Adobe_Photoshop_2022_Settings.tar.xz
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe.tar.xz" > Adobe.tar.xz
 tar -xf Adobe.tar.xz
-mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/Program\ Files\ \(x86\)/Common Files
+mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/Program\ Files\ \(x86\)/Common\ Files
 rm -rf Adobe_Photoshop_2022_Settings.tar.xz
 rm -rf Adobe\ Photoshop\ 2022\ Settings
 
