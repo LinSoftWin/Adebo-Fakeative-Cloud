@@ -30,9 +30,9 @@ curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/AdobePho
 
 curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/PS2022/Adobe.tar.xz" > Adobe.tar.xz
 tar -xf Adobe.tar.xz
-mv Adobe\ Photoshop\ 2022\ Settings $1/Adobe-Photoshop/drive_c/Program\ Files\ \(x86\)/Common\ Files
-rm -rf Adobe_Photoshop_2022_Settings.tar.xz
-rm -rf Adobe\ Photoshop\ 2022\ Settings
+mv Adobe $1/Adobe-Photoshop/drive_c/Program\ Files\ \(x86\)/Common\ Files
+rm -rf Adobe.tar.xz
+rm -rf Adobe
 
 rm -rf $1/progress.mimifile
 touch $1/progress.mimifile
